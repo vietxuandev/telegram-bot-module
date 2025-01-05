@@ -1,10 +1,10 @@
 import { ConfigurableModuleBuilder } from "@nestjs/common";
 
-import { TelegramModuleOptions } from "./interfaces";
+import { TelegramBotModuleOptions } from "./interfaces";
 
 export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
-  new ConfigurableModuleBuilder<TelegramModuleOptions>({
-    moduleName: "Telegram",
+  new ConfigurableModuleBuilder<TelegramBotModuleOptions>({
+    moduleName: "TelegramBot",
   })
     .setExtras(
       {

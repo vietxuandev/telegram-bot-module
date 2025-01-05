@@ -1,5 +1,5 @@
 import type { ConstructorOptions } from "node-telegram-bot-api";
 
-export interface TelegramModuleOptions extends ConstructorOptions {
+export interface TelegramBotModuleOptions extends ConstructorOptions {
   token: string;
 }
