@@ -12,14 +12,14 @@ $ npm install --save telegram-bot-module
 
 ### Basic Setup
 
-Import `TelegramModule` into your application:
+Import `TelegramBotModule` into your application:
 
 ```typescript
-import { TelegramModule } from 'telegram-bot-module';
+import { TelegramBotModule } from 'telegram-bot-module';
 
 @Module({
   imports: [
-    TelegramModule.forRoot({
+    TelegramBotModule.forRoot({
       isGlobal: true,
       token: process.env.TELEGRAM_BOT_TOKEN,
       polling: true,
@@ -76,7 +76,7 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 
 @Module({
   imports: [
-    TelegramModule.forRootAsync({
+    TelegramBotModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         token: configService.get<string>("TELEGRAM_BOT_TOKEN"),
