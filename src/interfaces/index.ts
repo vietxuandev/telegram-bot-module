@@ -1,1 +1,1 @@
-export * from "./telegram-options.interface";
+export * from "./telegram-bot-options.interface";
