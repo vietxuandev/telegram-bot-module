@@ -31,18 +31,18 @@ import { TelegramModule } from 'telegram-bot-module';
 export class AppModule {}
 ```
 
-### Inject `TelegramService` to Send or Handle Messages
+### Inject `TelegramBotService` to Send or Handle Messages
 
 ```typescript
 import { Injectable } from "@nestjs/common";
-import { TelegramService } from "telegram-bot-module";
+import { TelegramBotService } from "telegram-bot-module";
 
 @Injectable()
 export class BotService {
-  constructor(private readonly telegramService: TelegramService) {}
+  constructor(private readonly telegramBotService: TelegramBotService) {}
 
   async sendMessage(chatId: number, message: string): Promise<void> {
-    await this.telegramService.sendMessage(chatId, message);
+    await this.telegramBotService.sendMessage(chatId, message);
   }
 }
 ```
@@ -53,14 +53,14 @@ Subscribe to Telegram updates in your application:
 
 ```typescript
 import { Injectable, OnModuleInit } from "@nestjs/common";
-import { TelegramService } from "telegram-bot-module";
+import { TelegramBotService } from "telegram-bot-module";
 
 @Injectable()
 export class BotUpdateService implements OnModuleInit {
-  constructor(private readonly telegramService: TelegramService) {}
+  constructor(private readonly telegramBotService: TelegramBotService) {}
 
   onModuleInit() {
-    this.telegramService.on("message", (msg) => {
+    this.telegramBotService.on("message", (msg) => {
       console.log("New message received:", msg.text);
     });
   }
@@ -113,14 +113,14 @@ Retrieve information about the currently set webhook.
 If you want to use the full power of `node-telegram-bot-api`, you can access the underlying instance directly:
 
 ```typescript
-import { TelegramService } from "telegram-bot-module";
+import { TelegramBotService } from "telegram-bot-module";
 
 @Injectable()
 export class AdvancedBotService {
-  constructor(private readonly telegramService: TelegramService) {}
+  constructor(private readonly telegramBotService: TelegramBotService) {}
 
   async customMethod() {
-    const botInstance = this.telegramService.getBotInstance();
+    const botInstance = this.telegramBotService.getBotInstance();
     // Call any method from node-telegram-bot-api
     await botInstance.setChatTitle(123456789, "New Chat Title");
   }
