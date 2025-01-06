@@ -12,6 +12,6 @@ export class TelegramBotService extends TelegramBot {
   ) {
     const { token, ...options } = telegramBotModuleOptions;
 
-    super(telegramBotModuleOptions.token, options);
+    super(token, options);
   }
 }
