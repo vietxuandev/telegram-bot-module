@@ -11,7 +11,7 @@ export class TelegramBotService extends TelegramBot {
     private readonly telegramBotModuleOptions: TelegramBotModuleOptions
   ) {
     const { token, ...options } = telegramBotModuleOptions;
-    console.log("first");
+    console.log("first token", token);
     super(token, options);
   }
 }
